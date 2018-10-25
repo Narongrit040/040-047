@@ -1,0 +1,43 @@
+ 
+<div id="Foods{{Id}}">
+  
+    <ons-card class="post">
+            <ons-list-item class="post_title">
+              <div class="left">
+              
+                <div class="post-caption"><h2>Food: {{Name}} </h2> </div>
+              </div>
+              <div class="right">
+                  <div class="post-caption"><h2>Price: {{Price}} Baht</h2> </div>
+               
+    </div>
+   
+            </ons-list-item>
+            <div class="post-caption" >
+                <center>
+           
+              <img class="post-image" src="{{Pictures}}" height="250" width="250"> 
+
+             
+            
+               <div id="amountFood2{{Id}}"></div>
+              <input id="no{{Id}}" name="prodId" type="hidden" value="{{Id}}">
+           
+                 
+              
+               </center>
+            </div>
+        
+            <ons-list-item class="post-button-bar" modifier="nodivider">
+        
+              
+                <ons-button class="corner-button" modifier="quiet" onclick='amount2{{Id}}()'>Detail</ons-button>
+                <ons-button class="corner-button" modifier="quiet" onclick='removeCooking{{Id}}()'>Remove</ons-button>
+              
+            
+            </ons-list-item>
+            
+         
+          </ons-card>
+    
+        </div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <link rel="stylesheet" href="css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<script id="template" type="x-tmpl-musctache">
+
+</script>
+<body>
+    <ons-page>
+        <ons-toolbar>
+          <div class="center">WAITER</div>
+          <div class="right">
+              <ons-toolbar-button onclick="logout()"><i class="fas fa-sign-out-alt"></i> SIGN-OUT</ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+      
+        <ons-tabbar swipeable position="auto">
+          
+            <!-- <ons-tab page="HomePage.html"  label="My HomePage" icon="ion-home" active-icon="md-face" >
+            </ons-tab> -->
+          <ons-tab page="FoodMenu.html" id = "timetab"  active>
+        </ons-tab>
+     
+       
+        </ons-tabbar>
+      </ons-page>
+      
+      <!-- <template id="HomePage.html">
+        <ons-page id="HomePage">
+           <br>
+       
+          <!-- <center> <ons-button type="submit" onclick="logout()" >log out</ons-button></center> -->
+        
+        </ons-page>
+      </template> -->
+
+      <!-- //--------- -->
+      <template id="FoodMenu.html">
+        <ons-page id="FoodMenu">
+            <div id="WaitToServeToCu"></div>
+        </ons-page>
+    </template>
+
+   
+   
+
+    
+
+      
+      <script src="js/jquery.js"></script>
+      <script src="js/FoodMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <link rel="stylesheet" href="css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<script id="template" type="x-tmpl-musctache">
+
+</script>
+<body>
+    <ons-page>
+        <ons-toolbar>
+          <div class="center">Welcome</div>
+          <div class="right">
+              <ons-toolbar-button onclick="logout()"><i class="fas fa-sign-out-alt"></i> SIGN-OUT</ons-toolbar-button>
+            </div>
+        </ons-toolbar>
+      
+        <ons-tabbar swipeable position="auto">
+          
+            <!-- <ons-tab page="HomePage.html"  label="My HomePage" icon="ion-home" active-icon="md-face" >
+            </ons-tab> -->
+        
+        <ons-tab page="FoodCounter.html" id = "timetab2"  active>    <i class="fas fa-users"><br>Food Counter</i>
+        </ons-tab>
+        <ons-tab page="PaymentComfirm.html" id = "timetab2"   ><i class="fas fa-money-bill-alt"><br>Comfirm payment</i>
+        </ons-tab>
+        </ons-tabbar>
+      </ons-page>
+      
+      <template id="HomePage.html">
+        <ons-page id="HomePage">
+                <ons-card class="post" style="background-color:lightgreen; color: #000000 ;">
+          <center> Welcome Counter </center>
+          <center> <button type="submit" onclick="logout()" >log out</button></center>
+          </ons-card>
+        </ons-page>
+      </template>
+
+     
+
+    <template id="FoodCounter.html">
+      <ons-page id="timetab2">
+          <!-- <div id="payment"></div> -->
+          <h1>
+            <p align="center">จัดการลำดับคิว</p>
+          </h1>
+          <center><ons-Button onclick='selectQueue()'>
+              <p>เรียกคิว</p>
+            </ons-Button></center>
+          <br>
+          <br>
+          <h2>
+            <center>
+              <div id='pinFirst'></div>
+              <center>
+          </h2>
+          <br>
+          <center>
+            <p>จำนวนสมาชิก <p id="showNumberTable"></p>
+              </ons-input>
+            </p>
+            <ons-input type="hidden" name="disabled" id='numberTable' disabled></ons-input><br>
+            <!-- <center><p>Member: <input name="disabled" id='numberTable' disabled></p> -->
+  
+            <center>
+                <div class="row begin-countdown">
+                    <div class="col-md-12 text-center">
+                      <progress value="50" max="50" id="pageBeginCountdown"></progress>
+                      <p>Next Begining in <span id="pageBeginCountdownText">50 </span> seconds</p>
+                    </div>
+                  </div>
+                  <!-- //----countdown -->
+              <ons-button type="submit" onclick="skip()">Skip</ons-button>
+              <ons-button type="submit" onclick="delete1()">Cancel</ons-button>
+            </center>
+  
+          </center>
+          <br>
+          <center>
+            ยันยืน: <ons-input  style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="number" id="serialGenerate" placeholder="Enter Code"></ons-input>
+            <ons-button type="submit" onclick="verifying()">Enter</ons-button>
+  
+          </center>
+          <br>
+  
+          <br>
+          <br>
+          <center> <h1>
+            <p>คิวที่เหลือ</p></h1>
+          </center>
+          <center><textarea style="background-color: #ffffff ; color: #000000 ;font-size: 20px;" class="textarea"  name="" id="pin1" cols="30" rows="10" disabled></textarea></center>
+  
+          <br>
+  
+  
+  
+          <center><textarea style="background-color:  #ffffff; color: #000000 ;font-size: 20px;" class="textarea"  name="" id="pinlist" cols="30" rows="10" disabled></textarea></center>
+          <center>
+            <p id='table'></p>
+          </center>
+        </p>
+      </ons-page>
+  </template>
+
+  <template id="PaymentComfirm.html">
+    <ons-page id="timetab2">
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+            </style>
+
+            <center>
+                <ons-button onclick="TableInfo()">GetTable</ons-button>
+            </center>
+    
+      <center>
+      <table>
+        <center> <div id='tableTable'></div></center>
+     </table>
+    </center>
+    <center>
+      <ons-button type="submit" onclick="comfrimTable()" >Comfirm Table</ons-button>
+    </center>
+    <br>
+     <br>
+
+     <center>
+        QueueId: <input type="text" id="queue" placeholder="QueueId">
+<ons-button type="submit" onclick="paymentComfirm()" >Comfirm Payment</ons-button>
+     </center>
+     
+    </ons-page>
+</template>
+
+      
+      <script src="js/jquery.js"></script>
+      <script src="js/FoodMenu.js"></script>
+      <script src="js/index.js"></script>
+      <script src="js/countdown.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+ 
+<div id="Foods{{Id}}">
+  
+  <ons-card class="post">
+          <ons-list-item class="post_title">
+            <div class="left">
+ 
+              <div class="post-caption" >
+                <h2>Food: {{Name}} </h2>
+              </div>
+  
+            </div>
+  
+            <div class="right">
+                <div class="post-caption" >
+               <h2>Price: {{Price}} Baht</h2>
+                
+              </div>
+
+  </div>
+
+          </ons-list-item>
+      
+          <div class="post-caption" >
+            <center>
+            <img  class="post-image" src="{{Pictures}}" height="250" width="250"> 
+          
+            
+              <h2>Please fill the Amount and Detail</h2>
+               
+             
+            <input type="number"  name="amount" class="text-input" placeholder="text" value="1" max="9" min="1" id="amount{{Id}}">
+                
+                 <input type="text" class="text-input" placeholder="text" value="{{Name}}" id="nameFood{{Id}}" hidden>
+                <textarea class="textarea" id="dataDetail{{Id}}" col="40" rows="10" placeholder="Food Detail"></textarea>
+
+             
+             
+          </div>
+        </center>
+          <ons-list-item class="post-button-bar" modifier="nodivider">
+            <div class="right">
+              <ons-button class="corner-button" modifier="quiet" onclick='add{{Id}}()'>Add</ons-button>
+          </div>
+          </ons-list-item>
+          
+       
+        </ons-card>
+  
+      </div>

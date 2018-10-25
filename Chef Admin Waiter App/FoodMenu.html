@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <link rel="stylesheet" href="css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/onsen-css-components.min.css">
+ 
+</head>
+<script id="template" type="x-tmpl-musctache">
+
+</script>
+<body>
+    <ons-page>
+        <ons-toolbar>
+          <div class="center">Welcome</div>
+        </ons-toolbar>
+      
+        <ons-tabbar swipeable position="auto">
+            <ons-tab page="HomePage.html"  label="My HomePage" icon="ion-home" active-icon="md-face" active>
+              </ons-tab>
+          <ons-tab page="FoodMenu.html" id = "timetab" label="Food Menu" icon="ion-home, material:md-home" badge="1" >
+          </ons-tab>
+      
+          <ons-tab page="ToConfirm.html" id = "CartTab" label="To Confirm" icon="md-settings" active-icon="md-face">
+          </ons-tab>
+          <ons-tab page="ToReceive.html" label="To Receive" icon="md-settings" active-icon="md-face">
+            </ons-tab>
+        </ons-tabbar>
+      </ons-page>
+      
+      <template id="HomePage.html">
+          <ons-page id="HomePage">
+          <br>
+          <ons-card class="post" style="background-color:lightgreen; color: #000000 ;">
+          <center> Welcom Chef <div id="FirstName"></div>  </center>
+          
+            <center> <button type="submit" onclick="logout()" >log out</button></center> 
+          </ons-card>
+          </ons-page>
+        </template>
+
+      <!-- //--------- -->
+      <template id="FoodMenu.html">
+        <ons-page id="FoodMenu">
+          <div id='addComfirm'></div>
+          
+        </ons-page>
+    </template>
+
+
+      <template id="ToConfirm.html">
+        <ons-page id="ToConfirm">
+            <center><ons-button class="corner-button" modifier="quiet" onclick='addCook()'>Show Data</ons-button></center> 
+          <div id='WaitToCook'></div>
+          <!-- <div id="addComfirm"></div> -->
+          <!-- <div id="addComfirm2"></div> -->
+          
+        </ons-page>
+      </template>
+      <template id="ToReceive.html">
+          <ons-page id="ToReceive">
+              <center><ons-button class="corner-button" modifier="quiet" onclick='addReceive()'>Show Data</ons-button></center> 
+            <div id='WaitToServe'></div>
+            
+          </ons-page>
+        </template>
+
+      
+      <script src="js/jquery.js"></script>
+      <script src="js/FoodMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <link rel="stylesheet" href="css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/onsen-css-components.min.css">
+</head>
+<script id="template" type="x-tmpl-musctache">
+
+</script>
+
+<body>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Welcome</div>
+      <div class="right">
+        <ons-toolbar-button onclick="logout()"><i class="fas fa-sign-out-alt"></i> SIGN-OUT</ons-toolbar-button>
+      </div>
+    </ons-toolbar>
+
+    <ons-tabbar swipeable position="auto">
+      <ons-tab page="HomePage.html" label="My HomePage" icon="ion-home" active-icon="md-face" active>
+      </ons-tab>
+      <ons-tab page="FoodMenu.html" id="timetab" label="Food Menu" icon="ion-home, material:md-home" badge="1">
+      </ons-tab>
+
+      <ons-tab page="ToConfirm.html" id="CartTab" label="To Confirm" icon="md-settings" active-icon="md-face">
+      </ons-tab>
+      <ons-tab page="ToReceive.html" label="To Receive" icon="md-settings" active-icon="md-face">
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+
+  <template id="HomePage.html">
+    <ons-page id="HomePage">
+      <br>
+      <center>
+        <ons-card class="post" style="background-color:white; color: #000000 ; height: 10%; width: 250px ;">
+          <div id="FirstName"></div>
+          <!-- <center> <ons-button class="corner-button" modifier="quiet" onclick="logout()" style="background-color:lightblue; color: #000000 ;" >log out</ons-button></center>  -->
+        </ons-card>
+      </center>
+    </ons-page>
+  </template>
+
+  <!-- //--------- -->
+  <template id="FoodMenu.html">
+    <ons-page id="FoodMenu">
+      <style>
+        table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
+                </style>
+      <center>
+        <h2>Register Staff and Chef</h2>
+      </center>
+
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="FirstName2"
+          placeholder="First name"></ons-input><br><br> 
+      </center>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="LastName2"
+          placeholder="Last name"> </ons-input><br><br> 
+      </center>
+      <br>
+      <center>
+        Position: <form>
+          <input type="radio" name="choice" value="Chef"> Chef
+          <input type="radio" name="choice" value="Waiter"> Waiter
+          <input type="radio" name="choice" value="Counter"> Counter
+        </form>
+      </center>
+      <br>
+      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Email"
+          placeholder="Email"> </ons-input><br><br> </center>
+      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Birthday"
+          placeholder="Birthday"></ons-input><br><br> </center>
+      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Tel"
+          placeholder="Tel"></ons-input><br><br> </center>
+      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Password"
+          placeholder="Password"></ons-input<br><br> </center>
+      <center><ons-button onclick="register()">Register</ons-button></center>
+      <br>
+      <br>
+      <center><ons-button onclick="StaffInfo()">GetStaff</ons-button></center> <br>
+      <br>
+
+
+
+      <table>
+        <center>
+          <div id='tableStaff'></div>
+        </center>
+      </table>
+      <center><ons-button onclick="Activate()">Activate</ons-button></center>
+    </ons-page>
+  </template>
+
+
+  <template id="ToConfirm.html">
+    <ons-page id="ToConfirm">
+      <center>
+        <h2>Showing Queues</h2>
+      </center>
+      <center><ons-Button onclick='selectQueue()'>
+          <p>เรียกคิว</p>
+        </ons-Button></center>
+      <br>
+      <br>
+      <center>
+        <p>คิวต่อไป</p>
+      </center>
+      <center><textarea name="" id="pin1" cols="30" rows="10"></textarea></center>
+    </ons-page>
+  </template>
+
+
+  <template id="ToReceive.html">
+    <ons-page id="ToReceive">
+      <style>
+        table {
+                      font-family: arial, sans-serif;
+                      border-collapse: collapse;
+                      width: 100%;
+                  }
+                  
+                  td, th {
+                      border: 1px solid #dddddd;
+                      text-align: left;
+                      padding: 8px;
+                  }
+                  
+                  tr:nth-child(even) {
+                      background-color: #dddddd;
+                  }
+                  </style>
+      <center>
+        <h2>Managing menu and food</h2>
+      </center>
+
+      <center>
+        <h2>Food</h2>
+      </center>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Name"
+          placeholder="Name"></ons-input><br><br>
+      </center>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Detail"
+          placeholder="Detail"></ons-input><br><br>
+      </center>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Price"
+          placeholder="Price"></ons-input><br><br>
+      </center>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="TimeCook"
+          placeholder="TimeCook"></ons-input>
+      </center>
+      <br>
+      <center>
+        Type:
+        <div id='choice2'></div>
+        <!-- <form >
+                <input type="radio" name="choice2" value="ต้ม"> ต้ม
+                <input type="radio" name="choice2" value="ผัด"> ผัด
+                <input type="radio" name="choice2" value="ทอด"> ทอด
+                <input type="radio" name="choice2" value="เครื่องดื่ม"> เครื่องดื่ม
+                <input type="radio" name="choice2" value="ของหวาน"> ของหวาน
+              </form> -->
+      </center>
+      <br>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Picture"
+          placeholder="Pic URL"></ons-input><br><br>
+      </center>
+
+      <center>
+        <ons-button onclick="AddFood()">Add</ons-button>
+      </center>
+      <br>
+      <center>
+        <ons-button onclick="FoodInfo()">GetFood</ons-button>
+      </center>
+      <center>
+        <table>
+
+          <div id='tableFood'></div>
+        </table>
+      </center>
+
+      <br>
+      <br>
+      <center>
+        <h2>Menu</h2>
+      </center>
+
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="NameFood"
+          placeholder="NameFood"></ons-input><br><br>
+      </center>
+      <center>
+        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Detail2"
+          placeholder="Detail"></ons-input><br><br>
+      </center>
+      <br>
+      <center>
+        <ons-button onclick="AddMenu()">Add</ons-button>
+      </center>
+      <br>
+      <br>
+
+    </ons-page>
+  </template>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/FoodMenu.js"></script>
+</body>
+
+</html>

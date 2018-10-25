@@ -1,0 +1,58 @@
+ 
+<div id="Foods{{Id}}">
+  
+  <ons-card class="post">
+          <ons-list-item class="post_title">
+            <div class="left">
+              <!-- <img class="list-item__thumbnail" src="https://maxcdn.icons8.com/Share/icon/color/Cinema//sherlock_holmes1600.png" > -->
+  
+              <div class="post-caption" >
+                <h2>Food: {{Name}} </h2>
+              </div>
+  
+            </div>
+  
+            <div class="right">
+                <div class="post-caption" >
+               <h2>Price: {{Price}} Baht</h2>
+                
+              </div>
+              
+                <!-- <ons-button class="corner-button" modifier="quiet" onclick='deletepost({{id}})'><ons-icon icon="ion-trash-a"></ons-icon></ons-button> -->
+  </div>
+  <!-- <div class="center">
+               
+            </div> -->
+          </ons-list-item>
+      
+          <!-- <div style="text-align: center; position: relative;" ondblclick="like(1)"> -->
+            <!-- <ons-icon size="150px" id="post-like-1" class="post-like" icon="ion-ios-heart"></ons-icon> -->
+            <!-- <img  class="post-image" src="{{Pictures}}" height="250" width="250">  -->
+          
+                <!-- Amount:<input type="number" name="amount" id="amount{{Id}}" value="1" max="9" min="1"> -->
+                <!-- <div id="foodId">{{Id}}</div> -->
+                <!-- <input type="text" id="nameFood{{Id}}" value="{{Name}}" disabled>
+                <input type="text" id="namePrice{{Id}}" value="{{Price}}" disabled> -->
+                <input id="no{{Id}}" name="prodId" type="hidden" value="{{Id}}">
+                <div id="amountFood4{{Id}}"></div>
+                
+               <ons-button class="corner-button" modifier="quiet" onclick='amountDetail{{Id}}()'>Detail</ons-button>
+                <!-- <ons-button class="corner-button" modifier="quiet" onclick='comfirm{{Id}}()'>Comfirm</ons-button> -->
+          </div>
+      
+          <ons-list-item class="post-button-bar" modifier="nodivider">
+            <div class="right">
+              
+          </div>
+          </ons-list-item>
+          
+          <!-- <div class="post-caption"><b>{{Name}}</b> <br>{{Price}} </div> -->
+        </ons-card>
+  
+      </div>
+
+
+
+
+
+       

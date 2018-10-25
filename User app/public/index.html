@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/countdown.js"></script>
+  <link rel="stylesheet" href="css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/onsen-css-components.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+</head>
+
+<script id="template" type="x-tmpl-musctache">
+
+</script>
+<style>
+
+
+  .page--full_bg__background {
+      background-image: url(img/bg.jpg);
+      /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+
+  }
+</style>
+<body>
+    <ons-page>
+        <ons-toolbar>
+          <div class="center">One Stop Service Food Court</div>
+        </ons-toolbar>
+      
+        <ons-tabbar swipeable position="auto">
+          <ons-tab page="tab1.html" label="Queue" icon="ion-home, material:md-home" >
+          </ons-tab>
+          <ons-tab page="tab2.html" label="Manage Queue" icon="md-settings" active-icon="md-face">
+          </ons-tab>
+          <ons-tab page="tab3.html" label="All Queue" icon="md-settings" active-icon="md-face">
+            </ons-tab>
+         
+        </ons-tabbar>
+      </ons-page>
+      
+      <template id="tab1.html">
+        <ons-page id="Tab1"  modifier="full_bg">
+          
+            <br>
+            <div class="container-fluid" >
+       
+                <div class="container-fluid">
+                    <div align="right" style="margin-right:5%;">
+                    <img src="img/mainLogo.png"  style=" max-width: 100%;height: auto;width: auto\9; " class="img-responsive">
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                        <div class="col-sm-6"  class="img-responsive"style=" margin-left:8%;margin-right:2%;margin-top:-12%;  background-color:  rgba(8, 8, 8, 0.5); border-color:#eaebed00;   ">
+
+                        <script>
+                            //slind img
+                            var myIndex = 0;
+                            carousel();
+
+                            function carousel() {
+                                var i;
+                                var x = document.getElementsByClassName("mySlides");
+                                for (i = 0; i < x.length; i++) {
+                                    x[i].style.display = "none";
+                                }
+                                myIndex++;
+                                if (myIndex > x.length) { myIndex = 1 }
+                                x[myIndex - 1].style.display = "block";
+                                setTimeout(carousel, 2000); // Change image every 2 seconds
+                            }
+
+                        </script>
+                        <br>
+                        <div>   <br><img class="mySlides" src="img/F1.jpg" style="max-width: 100%;height: 800;width: 500\9;  object-fit: contain;">
+                            <img class="mySlides" src="img/F3.jpg" style="max-width: 100%;height: 800;width: 500\9;  object-fit: contain;">
+                            <img class="mySlides" src="img/F3.jpg" style="max-width: 100%;height: 800;width: 500\9;  object-fit: contain;">
+                            <!-- <img src="https://www.thaihoteldeal.com/images/images-data/promotion/images/20170315163021_expo_3135.jpg"
+                                alt="one" style="width: 100%; height: 100%; object-fit: contain;">  -->
+                        </div><br>
+                    </div>
+                    <br>
+                    <!-- size img 800*500 -->
+                    <div class="col-md-3" style="background-color:  rgba(0, 0, 0, 0.5); border-style: solid;border-color: rgba(0, 0, 0, 0); margin-left:8%;margin-right:5%; ">
+                            <center>  <center>  <div id='print'></div></center> 
+
+                            <h1 class="pagelink" style="font-size:40px">เลือกจำนวนสมาชิก</h1>
+                        </center>
+                        <center>
+                            <br><img src="img/oneP.png" onmouseover="this.src='img/onePx.png'" onmouseout="this.src='img/oneP.png'"
+                                height="130" size="130" alt="one" onclick="myMember1()">
+                            <img src="img/twoP.png" onmouseover="this.src='img/twoPx.png'" onmouseout="this.src='img/twoP.png'"
+                                height="130" size="130" alt="one" onclick="myMember2()">
+                            <img src="img/threeP.png" onmouseover="this.src='img/threePx.png'" onmouseout="this.src='img/threeP.png'"
+                                height="130" size="130" alt="one" onclick="myMember3()">
+                            <img src="img/fourP.png" onmouseover="this.src='img/fourPx.png'" onmouseout="this.src='img/fourP.png'"
+                                height="130" size="130" alt="one" onclick="myMember4()">
+                            <img src="img/fiveP.png" onmouseover="this.src='img/fivePx.png'" onmouseout="this.src='img/fiveP.png'"
+                                height="130" size="130" alt="one" onclick="myMember5()">
+                            <img src="img/sixP.png" onmouseover="this.src='img/sixPx.png'" onmouseout="this.src='img/sixP.png'"
+                                height="130" size="130" alt="one" onclick="myMember6()">
+                                <input type="hidden" id="number123" placeholder="Number of People">
+
+                            <div><br><br>
+                            
+     <div id="checkTicket" style="display: none;">           <H1>Ticket</H1>
+        <ons-list-item name="" id="data" hide></ons-list-item> </div>
+                            </div>
+
+
+                        </center>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+    
+
+      <br>
+     <br>
+
+
+        </ons-page>
+      </template>
+      
+      <template id="tab2.html">
+        <ons-page id="Tab2"  modifier="full_bg"><br><br>
+                <div class="container-fluid" >
+                        <div class="row">
+                                <div class="col-sm-4" style=" margin-left:8%;margin-right:5%;  background-color:  rgba(2, 2, 2, 0.9); border-color:#eaebed00;  height: 550px ">
+          <p style="text-align: center;">
+            <h1>
+              <p align="center" style="font-size:40px">จัดการลำดับคิว</p>
+            </h1>
+            <center><ons-Button onclick='selectQueue()' style="background-color: #f44336; padding: 20px 37px;font-size:30px">
+                เรียกคิว
+              </ons-Button></center>
+            <br>
+            <br>
+            <h2>
+              <center>
+                <div id='pinFirst' style="font-size:40px ;color: #f90505"></div>
+                <center>
+            </h2>
+            <br>
+            <center>
+              <p style="font-size:30px">จำนวนสมาชิก <p id="showNumberTable"></p>
+                </ons-input>
+              </p>
+              <ons-input type="hidden" name="disabled" id='numberTable' disabled></ons-input><br>
+              <!-- <center><p>Member: <input name="disabled" id='numberTable' disabled></p> -->
+    
+              <center>
+                  <div class="row begin-countdown">
+                      <div class="col-md-12 text-center">
+                        <progress value="50" max="50" id="pageBeginCountdown"></progress>
+                        <p>Next Begining in <span id="pageBeginCountdownText">50 </span> seconds</p>
+                      </div>
+                    </div> </center>
+                    <center>
+                            <ons-button type="submit" onclick="skip()"style="padding: 15px 32px;font-size:30px">Skip</ons-button>
+                        <ons-button type="submit" onclick="delete1()"style=" padding: 15px 32px;font-size:30px">Cancel</ons-button>
+                      </center>
+            
+                    <!-- //----countdown -->
+                </div>
+           
+                <div class="col-md-4" style="background-color:  rgba(0, 0, 0, 0.5); border-style: solid;border-color: rgba(0, 0, 0, 0); margin-left:8%;margin-right:5%; ">
+        
+            </center>
+            <br>
+            <style>
+            input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+  
+}
+            </style>
+            <center>
+              <div align="left" style="font-size:30px">ยันยืน</div> 
+              <br> <input  style="background-color: #ffffffce; font-size: 30px;border-radius:10px " size="30" type="number" id="serialGenerate" placeholder="Enter Code"><br><br>
+              <ons-button type="submit" onclick="verifying()"style=" padding: 15px 25px;font-size:30px">Enter</ons-button>
+    
+            </center>
+            <br>
+    
+            <br>
+            <br>
+            <center> <h1>
+              <p>คิวที่เหลือ</p></h1>
+            </center>
+            <center><textarea style="background-color: #f90505; color: #ffffff ;font-size: 20px;" class="textarea"  name="" id="pin1" cols="30" rows="10" disabled></textarea></center>
+    
+            <br>
+    
+    
+    
+            <center><textarea style="background-color: #f90505; color: #ffffff ;font-size: 20px;" class="textarea"  name="" id="pinlist" cols="30" rows="10" disabled></textarea></center>
+            <center>
+              <p id='table'></p>
+            </center>
+          </p>
+        </div>
+        </div>
+    </div>
+          
+        </ons-page>
+      </template>
+
+      <template id="tab3.html">
+          <ons-page id="Tab3" modifier="full_bg"><br>
+            <div class="container-fluid">
+                    <div align="right" style="margin-right:5%;">
+                    <img src="img/mainLogo.png"  style=" max-width: 100%;height: auto;width: auto\9; " class="img-responsive">
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                        <div class="col-sm-6"  class="img-responsive"style=" margin-left:8%;margin-right:2%;margin-top:-12%; height: 550; background-color:  rgba(8, 8, 8, 0.5); border-color:#eaebed00;   ">
+
+                        <script>
+                            //slind img
+                            var myIndex2 = 0;
+                            carousel2();
+
+                            function carousel2() {
+                                var i;
+                                var x2 = document.getElementsByClassName("mySlides2");
+                                for (i = 0; i < x2.length; i++) {
+                                    x2[i].style.display = "none";
+                                }
+                                myIndex2++;
+                                if (myIndex2 > x2.length) { myIndex2 = 1 }
+                                x2[myIndex2 - 1].style.display = "block";
+                                setTimeout(carousel2, 2000); // Change image every 2 seconds
+                            }
+
+                        </script>
+                        <br>
+                        <div>   <br><img class="mySlides2" src="img/F1.jpg" style="max-width: 100%;height: 800;width: 500\9;  object-fit: contain;">
+  
+                            <img class="mySlides2" src="img/F3.jpg" style="max-width: 100%;height: 800;width: 500\9;  object-fit: contain;">
+                            <!-- <img src="https://www.thaihoteldeal.com/images/images-data/promotion/images/20170315163021_expo_3135.jpg"
+                                alt="one" style="width: 100%; height: 100%; object-fit: contain;">  -->
+                        </div><br>
+                    </div>
+                    <br>
+                    <!-- size img 800*500 -->
+                    <div class="col-md-3" style="background-color:  rgba(0, 0, 0, 0.5); border-style: solid;border-color: rgba(0, 0, 0, 0); margin-left:8%;margin-right:5%; ">
+
+
+
+              <center><div style="font-size:40px ;color: #f90505;" id='pinFirst1'></div><center>
+            <center><p style="font-size:30px">คิวต่อไป</p></center>
+                <center><textarea style="background-color: #f90505; color: #ffffff ;font-size: 20px;" class="textarea" name="" id="pin1" cols="30" rows="10" disabled></textarea></center>
+            </div>
+        </div>
+    </div>
+        
+           
+            </ons-page>
+            </template>
+
+</body>
+</html>

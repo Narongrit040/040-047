@@ -844,10 +844,10 @@ $(function(){
         url: "https://foodstepapi20180810123018.azurewebsites.net/Api/Queues/" + pinid,
 
     }).then(function (data) {
-
-    dataQueue.innerText = "\n Member: "+data.No+"\n Queue: "+data.Name+"\n PaymentStatus: "+data.PaymentStaus+"\n CodeNumber: "+data.Code+" \n CheckIn: "+data.Date+"\n Time: "+data.WaitTime;
-  
-
+        document.getElementById("showDBinfor").innerHTML ="\n<br> Member: "+data.No+"\n<br> Queue: "+data.Name+"\n<br> PaymentStatus: "+data.PaymentStaus+"\n<br> CodeNumber: "+data.Code+" \n<br> CheckIn: "+data.Date+"\n<br> Time: "+data.WaitTime;
+    dataQueue.innerText = "\n Member: "+data.No+"\n<br> Queue: "+data.Name+"\n<br> PaymentStatus: "+data.PaymentStaus+"\n<br> CodeNumber: "+data.Code+" \n<br> CheckIn: "+data.Date+"\n<br> Time: "+data.WaitTime;
+   
+ 
     });
 
   
@@ -1398,7 +1398,7 @@ function amount1(){
                
             }
             $('#amountFood1').empty();
-            $('#amountFood1').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood1').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -1443,7 +1443,7 @@ function amount3(){
                
             }
             $('#amountFood3').empty();
-            $('#amountFood3').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood3').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -1488,7 +1488,7 @@ function amount4(){
                
             }
             $('#amountFood4').empty();
-            $('#amountFood4').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood4').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -1663,7 +1663,7 @@ function amount5(){
                
             }
             $('#amountFood5').empty();
-            $('#amountFood5').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood5').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -1752,7 +1752,7 @@ function amount6(){
                
             }
             $('#amountFood6').empty();
-            $('#amountFood6').append("Amount: " +sumAmount+" \n Detail: "+CookStatus);
+            $('#amountFood6').append("Amount: " +sumAmount+" \n<br> Detail: "+CookStatus);
         }
     
 }
@@ -1836,7 +1836,7 @@ function amount7(){
                
             }
             $('#amountFood7').empty();
-            $('#amountFood7').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood7').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -1925,7 +1925,7 @@ function amount8(){
                
             }
             $('#amountFood8').empty();
-            $('#amountFood8').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood8').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -2014,7 +2014,7 @@ function amount9(){
                
             }
             $('#amountFood9').empty();
-            $('#amountFood9').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood9').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     
@@ -2103,7 +2103,7 @@ function amount10(){
                
             }
             $('#amountFood10').empty();
-            $('#amountFood10').append("Amount: " +sumAmount+" \n Detail: "+sumCookStatus);
+            $('#amountFood10').append("Amount: " +sumAmount+" \n<br> Detail: "+sumCookStatus);
         }
     
     

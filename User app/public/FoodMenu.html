@@ -14,10 +14,31 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
  <link rel="stylesheet" href="css/onsen-css-components.css">
   <link rel="stylesheet" href="css/onsen-css-components.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
 </head>
 <script id="template" type="x-tmpl-musctache">
 
 </script>
+
+<style>
+
+
+  .page--full_bg__background {
+      background-image: url(img/bg.jpg);
+      /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+
+  }
+</style>
 <body>
     <ons-page>
         <ons-toolbar>
@@ -38,25 +59,28 @@
       </ons-page>
       
       <template id="HomePage.html">
-          <ons-page id="HomePage">
-              <ons-card class="post"> 
-                  <ons-list-item class="post_title">
-                      <div class="left">
-           
-                        <div class="post-caption" >
-                          <h2>Queue Information</h2>
+          <ons-page id="HomePage" modifier="full_bg">
+
+      
+     
+              <br>
+            <div class="container-fluid">
+              
+     <div  class="row justify-content-md-center">    
+       <div class="col-sm-6" align="left" style="  background-color:  rgba(8, 8, 8, 0.7); border-color:#eaebed00;   ">
+                         <center> <h2>Queue Information</h2></center>
+                          <p id="showDBinfor"></p>
                         </div>
-            
+                        </div>
                       </div>
-                      </ons-list-item>
-          <center><textarea style="background-color: rgb(51, 49, 49); color: #000000 ;font-size: 20px;" class="textarea" id="dataQueue" cols="30" rows="10" disabled ></textarea></center>
-          </ons-card>
+          <!-- <center><textarea style="background-color: rgb(0, 0, 0); color: #ffffff ;font-size: 20px;" class="textarea" type="hidden" id="dataQueue" cols="30" rows="10" disabled ></textarea></center> -->
+   
           </ons-page>
         </template>
 
       <!-- //--------- -->
       <template id="FoodMenu.html">
-        <ons-page id="FoodMenu">
+        <ons-page id="FoodMenu" modifier="full_bg">
 
           <style>
             body {font-family: Arial;}
@@ -64,7 +88,7 @@
             /* Style the tab */
             .tab {
                 overflow: hidden;
-                border: 5px solid rgb(82, 82, 82);
+                border: 5px solid rgba(82, 82, 82, 0);
                 background-color: rgb(34, 34, 34);
             }
             
@@ -110,8 +134,7 @@
           <div id='pinlist2'></div> 
 
           <script>
-
-          function openCity(evt, cityName) {
+   function openCity(evt, cityName) {
           var i, tabcontent, tablinks;
           tabcontent = document.getElementsByClassName("tabcontent");
         console.log(cityName.id);
@@ -125,33 +148,31 @@
           document.getElementById(cityName.id).style.display = "block";
          evt.currentTarget.className += " active";
          }
-
-
           </script>  
         </ons-page>
     </template>
 
 
       <template id="ToConfirm.html">
-        <ons-page id="ToConfirm">
+        <ons-page id="ToConfirm" modifier="full_bg">
           <p style="text-align: center;">
-              Confirm
+        
               <center><ons-button class="corner-button" modifier="quiet" onclick='showAdd()'>Show Data</ons-button></center> 
           </p>
           <div id="addComfirm"></div>
 
          
-          <center><ons-button class="corner-button" modifier="quiet" onclick='comfirm()'>Comfirm</ons-button></center> 
+          <center><ons-button class="btn btn-success" modifier="quiet" onclick='comfirm()'>Comfirm</ons-button></center> 
           
         </ons-page>
       </template>
       <template id="ToReceive.html">
-          <ons-page id="ToReceive">
+          <ons-page id="ToReceive" modifier="full_bg">
             <p style="text-align: center;">
-                ToReceive
+            
                 <center><ons-button class="corner-button" modifier="quiet" onclick='dataExporting()'>Show Data</ons-button></center> 
             </p>
-            <div id ="WaitToServe"></div>
+            <div id ="WaitToServe" style="color:black;"></div>
             <center><div id="addAllComfirm"></div></center>
             <center><div id="addClear"></div></center>
           

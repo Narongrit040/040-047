@@ -3746,9 +3746,9 @@ alert('Post successed');
     });
 
     function findDataUser(dataUser){
-        $('#tableFood').append('<tr><td>Id</td><td>Name</td><td>Price</td><td>Type</td><td>TimeCook</td></tr>');
+        $('#tableFood').append('<tr class="table-dark"><td>Id</td><td>Name</td><td>Price</td><td>Type</td><td>TimeCook</td></tr>');
         for(var i=0 ; i<dataUser.length ; i++){
-            var row = '<tr><td>' + dataUser[i].Id + '</td><td>' + dataUser[i].Name + '</td><td>' + dataUser[i].Price + '</td><td>' + dataUser[i].Type + '</td><td>'+ dataUser[i].TimeCook+'</td></tr>';
+            var row = '<tr class="table-light"><td>' + dataUser[i].Id + '</td><td>' + dataUser[i].Name + '</td><td>' + dataUser[i].Price + '</td><td>' + dataUser[i].Type + '</td><td>'+ dataUser[i].TimeCook+'</td></tr>';
             $('#tableFood').append(row);
         }
     }
@@ -3772,23 +3772,26 @@ alert('Post successed');
            
             
 
-            $('#tableStaff').append('<tr><td>Id</td><td>FirstName</td><td>LastName</td><td>Tel</td><td>Email</td><td>Position</td><td>CurrentStatus</td><td>Status</td></tr>');
+            $('#tableStaff').append('<tr   class="table-dark"><td>Id</td><td>FirstName</td><td>LastName</td><td>Tel</td><td>Email</td><td>Position</td><td>CurrentStatus</td><td>Status</td></tr>');
                 for(var i=0 ; i<dataStaff.length ; i++){
                     if(dataStaff[i].Position == 'Admin'){
-                        var row = '<tr><td>' + dataStaff[i].Id + '</td><td>' + dataStaff[i].FirstName + '</td><td>' + dataStaff[i].LastName + '</td><td>' + dataStaff[i].Tel + '</td><td>' + dataStaff[i].Email + '</td><td>'+ dataStaff[i].Position+'</td><td>'+dataStaff[i].Status+'</td><td><form><input type="radio" name="choice" value="Enable" Checked disabled>'+'Enable'+' <input type="radio" name="choice" value="Disable" disabled>'+'Disable'+'</form></td></tr>';
+                        var row = '<tr class="table-light"><td>' + dataStaff[i].Id + '</td><td>' + dataStaff[i].FirstName + '</td><td>' + dataStaff[i].LastName + '</td><td>' + dataStaff[i].Tel + '</td><td>' + dataStaff[i].Email + '</td><td>'+ dataStaff[i].Position+'</td><td>'+dataStaff[i].Status+'</td><td><form><input type="radio" name="choice" value="Enable" Checked disabled>'+'Enable'+' <input type="radio" name="choice" value="Disable" disabled>'+'Disable'+'</form></td></tr>';
                   
                         $('#tableStaff').append(row);
                     }else{
                         if(dataStaff[i].Status == 'Enable'){
-                            var row = '<tr><td>' + dataStaff[i].Id + '</td><td>' + dataStaff[i].FirstName + '</td><td>' + dataStaff[i].LastName + '</td><td>' + dataStaff[i].Tel + '</td><td>' + dataStaff[i].Email + '</td><td>'+ dataStaff[i].Position+'</td><td>'+dataStaff[i].Status+'</td><td><form><input type="radio" name="choice" value="Enable" Checked>'+'Enable'+' <input type="radio" name="choice" value="Disable">'+'Disable'+'</form></td></tr>';
+                            var row = '<tr class="table-light"><td>' + dataStaff[i].Id + '</td><td>' + dataStaff[i].FirstName + '</td><td>' + dataStaff[i].LastName + '</td><td>' + dataStaff[i].Tel + '</td><td>' + dataStaff[i].Email + '</td><td>'+ dataStaff[i].Position+'</td><td>'+dataStaff[i].Status+'</td><td><form><input type="radio" name="choice" value="Enable" Checked>'+'Enable'+' <input type="radio" name="choice" value="Disable">'+'Disable'+'</form></td></tr>';
                         }else{
-                            var row = '<tr><td>' + dataStaff[i].Id + '</td><td>' + dataStaff[i].FirstName + '</td><td>' + dataStaff[i].LastName + '</td><td>' + dataStaff[i].Tel + '</td><td>' + dataStaff[i].Email + '</td><td>'+ dataStaff[i].Position+'</td><td>'+dataStaff[i].Status+'</td><td><form><input type="radio" name="choice" value="Enable">'+'Enable'+' <input type="radio" name="choice" value="Disable" Checked>'+'Disable'+'</form></td></tr>';
+                            var row = '<tr class="table-light"><td>' + dataStaff[i].Id + '</td><td>' + dataStaff[i].FirstName + '</td><td>' + dataStaff[i].LastName + '</td><td>' + dataStaff[i].Tel + '</td><td>' + dataStaff[i].Email + '</td><td>'+ dataStaff[i].Position+'</td><td>'+dataStaff[i].Status+'</td><td><form><input type="radio" name="choice" value="Enable">'+'Enable'+' <input type="radio" name="choice" value="Disable" Checked>'+'Disable'+'</form></td></tr>';
                         }
+
+            
                        
                   
                     $('#tableStaff').append(row);
                 }
                     }
+                    $('#tableStaff').append('</table>');
                     
            }
 
@@ -5210,13 +5213,13 @@ function TableInfo(){
            
             
 
-            $('#tableTable').append('<tr><td>Id</td><td>IdQueue</td><td>Name</td><td>TypeTable</td><td>Status</td><td>Approve</td></tr>');
+            $('#tableTable').append('<tr class="table-dark"><td>Id</td><td>IdQueue</td><td>Name</td><td>TypeTable</td><td>Status</td><td>Approve</td></tr>');
                 for(var i=0 ; i<dataTable.length ; i++){
                   
                         if(dataTable[i].Status == 'true'){
-                            var row = '<tr><td>' + dataTable[i].Id + '</td><td>' + dataTable[i].IdQueue + '</td><td>' + dataTable[i].Name + '</td><td>' + dataTable[i].TypeTable + '</td><td>' + dataTable[i].Status + '</td><td><form><input type="radio" name="choice" value="true" Checked>'+'Enable'+' <input type="radio" name="choice" value="false">'+'Disable'+'</form></td></tr>';
+                            var row = '<tr class="table-light"><td>' + dataTable[i].Id + '</td><td>' + dataTable[i].IdQueue + '</td><td>' + dataTable[i].Name + '</td><td>' + dataTable[i].TypeTable + '</td><td>' + dataTable[i].Status + '</td><td><form><input type="radio" name="choice" value="true" Checked>'+'Enable'+' <input type="radio" name="choice" value="false">'+'Disable'+'</form></td></tr>';
                         }else{
-                            var row = '<tr><td>' + dataTable[i].Id + '</td><td>' + dataTable[i].IdQueue + '</td><td>' + dataTable[i].Name + '</td><td>' + dataTable[i].TypeTable + '</td><td>' + dataTable[i].Status + '</td><td><form><input type="radio" name="choice" value="true">'+'Enable'+' <input type="radio" name="choice" value="false" Checked>'+'Disable'+'</form></td></tr>';
+                            var row = '<tr class="table-light"><td>' + dataTable[i].Id + '</td><td>' + dataTable[i].IdQueue + '</td><td>' + dataTable[i].Name + '</td><td>' + dataTable[i].TypeTable + '</td><td>' + dataTable[i].Status + '</td><td><form><input type="radio" name="choice" value="true">'+'Enable'+' <input type="radio" name="choice" value="false" Checked>'+'Disable'+'</form></td></tr>';
                         }
                        
                   

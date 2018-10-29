@@ -1,7 +1,7 @@
  
 <div id="Foods{{Id}}">
   
-    <ons-card class="post">
+    <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.7);">
             <ons-list-item class="post_title">
               <div class="left">
               
@@ -16,24 +16,25 @@
             <div class="post-caption" >
                 <center>
            
-              <img class="post-image" src="{{Pictures}}" height="250" width="250"> 
+              <img class="post-image" src="{{Pictures}}" style="max-width: 100%;  object-fit: contain;"> 
 
-             
-            
-               <div id="amountFood2{{Id}}"></div>
+              <div align="right" style="margin-right:1%;">
+              <div class="right" style="margin-right:1%;">
+               <div id="amountFood2{{Id}}" style="color:white"></div>
               <input id="no{{Id}}" name="prodId" type="hidden" value="{{Id}}">
            
-                 
+            </div></div>
+            
               
                </center>
             </div>
         
             <ons-list-item class="post-button-bar" modifier="nodivider">
         
-              
-                <ons-button class="corner-button" modifier="quiet" onclick='amount2{{Id}}()'>Detail</ons-button>
-                <ons-button class="corner-button" modifier="quiet" onclick='removeCooking{{Id}}()'>Remove</ons-button>
-              
+                <div class="right" style="margin-right:1%;">
+                <ons-button class="btn btn-default" modifier="quiet" onclick='amount2{{Id}}()'>Detail</ons-button>
+                <ons-button class="btn btn-danger" modifier="quiet" onclick='removeCooking{{Id}}()'>Remove</ons-button>
+              </div>
             
             </ons-list-item>
             

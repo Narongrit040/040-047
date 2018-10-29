@@ -1,12 +1,12 @@
  
 <div id="Foods{{Id}}">
   
-    <ons-card class="post">
+    <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.7);">
             <ons-list-item class="post_title">
               <div class="left">
     
                 <div class="post-caption" >
-                  <h2>Food: {{Name}} </h2>
+                  <h2>{{Name}} </h2>
                 </div>
     
               </div>
@@ -24,22 +24,25 @@
         
             <div class="post-caption" >
                 <center>
-              <img  class="post-image" src="{{Pictures}}" height="250" width="250"> 
+              <img  class="post-image" src="{{Pictures}}" style="max-width: 100%;  object-fit: contain;"> 
             
                
                   <input id="no{{Id}}" name="prodId" type="hidden" value="{{Id}}">
+                  <div align="right" style="margin-right:1%;">
+
                   <div id="amountFood{{Id}}"></div>
-                  
+                </div>
                 
                 </center>
             </div>
-        
-            <ons-list-item class="post-button-bar" modifier="nodivider">
-           
-              <ons-button class="corner-button" modifier="quiet" onclick='amount{{Id}}()'>Detail</ons-button>
-              <ons-button class="corner-button" modifier="quiet" onclick='remove{{Id}}()'>Remove</ons-button>
+            <div align="right" style="margin-right:1%;">
+            <ons-list-item align="right"  class="post-button-bar" modifier="nodivider">
+                <div class="right" style="margin-right:1%;">
+              <ons-button class="btn btn-default" modifier="quiet" onclick='amount{{Id}}()'>Detail</ons-button>
+              <ons-button  class="btn btn-danger" modifier="quiet" onclick='remove{{Id}}()'>Remove</ons-button>          </div>
+          
             </ons-list-item>
-            
+          </div>
           
           </ons-card>
     

@@ -1,12 +1,11 @@
- 
+
 <div id="Foods{{Id}}">
-  
-  <ons-card class="post">
-          <ons-list-item class="post_title">
+  <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.7);">
+      <ons-list-item class="post_title">
             <div class="left">
  
               <div class="post-caption" >
-                <h2>Food: {{Name}} </h2>
+                <h2>{{Name}}</h2>
               </div>
   
             </div>
@@ -18,33 +17,92 @@
               </div>
 
   </div>
+</ons-list-item>
 
-          </ons-list-item>
       
-          <div class="post-caption" >
+      
             <center>
-            <img  class="post-image" src="{{Pictures}}" height="250" width="250"> 
+            <img   src="{{Pictures}}" style="max-width: 100%;  object-fit: contain;"> 
           
             
-              <h2>Please fill the Amount and Detail</h2>
+              <!-- <h2>Please fill the Amount and Detail</h2> -->
                
              
-            <input type="number"  name="amount" class="text-input" placeholder="text" value="1" max="9" min="1" id="amount{{Id}}">
-                
+  
+              <div class="post-caption" >
                  <input type="text" class="text-input" placeholder="text" value="{{Name}}" id="nameFood{{Id}}" hidden>
-                <textarea class="textarea" id="dataDetail{{Id}}" col="40" rows="10" placeholder="Food Detail"></textarea>
+          
 
              
              
           </div>
+
+
+ 
+
+
+
         </center>
-          <ons-list-item class="post-button-bar" modifier="nodivider">
-            <div class="right">
-              <ons-button class="corner-button" modifier="quiet" onclick='add{{Id}}()'>Add</ons-button>
-          </div>
-          </ons-list-item>
+        
+        <script>
+            $(document).ready(function(){
+              var count =  1;
+                $("#add{{Id}}").click(function(){ 
+                  if($("#amount{{Id}}").val() < 9){
+                    count++;
+                  $("#amount{{Id}}").val(""+count);
+                  }else{
+
+                  }
+           
+                });
+                    $("#sub{{Id}}").click(function(){ 
+                      if($("#amount{{Id}}").val() > 1){
+                        count--;
+                  $("#amount{{Id}}").val(""+count);
+                      }else{
+
+                      }
+               
+                });
+            });
+            </script>
+      <br>
+            <div align="right" style="margin-right:1%;">
+        
+                <div align="right" style="margin-right:1%;">
+                           
+                                <!-- <button id="sub{{Id}}">sub</button> -->
+                              </div>
+                              <div class="right" style="margin-right:1%;">
+                                  <div class="contain">              <textarea class="textarea" id="dataDetail{{Id}}" col="40" rows="1" placeholder="Food Detail"></textarea>
+                                <input style="  border-radius: 4px; background-color:white;text-align: center; color: black;"type="text" size="1" name="amount" disabled placeholder="" value="1" max="9" min="1" id="amount{{Id}}">
+                                <!-- <button id="add{{Id}}">Add</button> --> 
+                         
+                                <img src="img/icons8-minus-64.png" id="sub{{Id}}"  alt="" width="25" height="25">
+                                <img src="img/icons8-plus-64.png" id="add{{Id}}" alt="" width="25" height="25">
+                                <!-- <input style="margin-right:5px; margin-left:-25px;" type="image" src="img/icons8-minus-64.png" id="sub{{Id}}" width="25" height="25"> -->
+                                <!-- <input  style="margin-right:10px;" type="image" src="img/icons8-plus-64.png" id="add{{Id}}" width="25" height="25"> -->
+                                <button onclick='add{{Id}}()' class="btn btn-danger" >Add</button>
+                              </div>
+ 
+
+                                           </div>
+                                      
           
-       
-        </ons-card>
+        
+   
+          
+               
+          
   
-      </div>
+           
+               
+            
+             
+          </div>
+        
+        </ons-card>
+       
+        </div>
+  

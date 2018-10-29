@@ -13,6 +13,21 @@
 <script id="template" type="x-tmpl-musctache">
 
 </script>
+<style>
+
+
+    .page--full_bg__background {
+        background-image: url(img/bg.jpg);
+        /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
+  
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+  
+    }
+  </style>
 <body>
     <ons-page>
         <ons-toolbar>
@@ -33,9 +48,9 @@
       </ons-page>
       
       <template id="HomePage.html">
-          <ons-page id="HomePage">
+          <ons-page id="HomePage"  modifier="full_bg">
           <br>
-          <ons-card class="post" style="background-color:lightgreen; color: #000000 ;">
+          <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.6); color: #ffffff ;">
           <center> Welcom Chef <div id="FirstName"></div>  </center>
           
             <center> <button type="submit" onclick="logout()" >log out</button></center> 
@@ -45,7 +60,7 @@
 
       <!-- //--------- -->
       <template id="FoodMenu.html">
-        <ons-page id="FoodMenu">
+        <ons-page id="FoodMenu" modifier="full_bg">
           <div id='addComfirm'></div>
           
         </ons-page>
@@ -53,7 +68,7 @@
 
 
       <template id="ToConfirm.html">
-        <ons-page id="ToConfirm">
+        <ons-page id="ToConfirm" modifier="full_bg">
             <center><ons-button class="corner-button" modifier="quiet" onclick='addCook()'>Show Data</ons-button></center> 
           <div id='WaitToCook'></div>
           <!-- <div id="addComfirm"></div> -->
@@ -62,7 +77,7 @@
         </ons-page>
       </template>
       <template id="ToReceive.html">
-          <ons-page id="ToReceive">
+          <ons-page id="ToReceive" modifier="full_bg">
               <center><ons-button class="corner-button" modifier="quiet" onclick='addReceive()'>Show Data</ons-button></center> 
             <div id='WaitToServe'></div>
             

@@ -9,10 +9,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
   <link rel="stylesheet" href="css/onsen-css-components.css">
   <link rel="stylesheet" href="css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
 </head>
 <script id="template" type="x-tmpl-musctache">
 
 </script>
+<style>
+
+
+  .page--full_bg__background {
+        background-image: url(img/bg.jpg);
+        /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
+  
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+  
+    }
+  </style>
 
 <body>
   <ons-page>
@@ -24,24 +42,26 @@
     </ons-toolbar>
 
     <ons-tabbar swipeable position="auto">
-      <ons-tab page="HomePage.html" label="My HomePage" icon="ion-home" active-icon="md-face" active>
-      </ons-tab>
-      <ons-tab page="FoodMenu.html" id="timetab" label="Food Menu" icon="ion-home, material:md-home" badge="1">
+      <!-- <ons-tab page="HomePage.html" label="My HomePage" icon="ion-home" active-icon="md-face" active>
+      </ons-tab> -->
+      <ons-tab page="FoodMenu.html" id="timetab" label="Management" icon="fa-cog" active-icon="md-face" active>
       </ons-tab>
 
-      <ons-tab page="ToConfirm.html" id="CartTab" label="To Confirm" icon="md-settings" active-icon="md-face">
+      <!-- <ons-tab page="ToConfirm.html" id="CartTab" label="To Confirm" icon="md-settings" active-icon="md-face">
       </ons-tab>
       <ons-tab page="ToReceive.html" label="To Receive" icon="md-settings" active-icon="md-face">
-      </ons-tab>
+      </ons-tab> -->
     </ons-tabbar>
   </ons-page>
 
   <template id="HomePage.html">
-    <ons-page id="HomePage">
+    <ons-page id="HomePage" modifier="full_bg">
       <br>
       <center>
-        <ons-card class="post" style="background-color:white; color: #000000 ; height: 10%; width: 250px ;">
-          <div id="FirstName"></div>
+        <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.7); color: #ffffff ; height: 10%; width: 250px ;">
+          <center>
+            <div id="FirstName"></div>
+          </center>
           <!-- <center> <ons-button class="corner-button" modifier="quiet" onclick="logout()" style="background-color:lightblue; color: #000000 ;" >log out</ons-button></center>  -->
         </ons-card>
       </center>
@@ -50,9 +70,152 @@
 
   <!-- //--------- -->
   <template id="FoodMenu.html">
-    <ons-page id="FoodMenu">
-      <style>
-        table {
+    <ons-page id="FoodMenu" modifier="full_bg">
+        <center>
+            <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.7); color: #ffffff ; height: 10%; width: 250px ;">
+              <center>
+                <div id="FirstName"></div>
+              </center>
+              <!-- <center> <ons-button class="corner-button" modifier="quiet" onclick="logout()" style="background-color:lightblue; color: #000000 ;" >log out</ons-button></center>  -->
+            </ons-card>
+          </center>
+      <script>
+        $(document).ready(function () {
+          $("#addUserByAdmin").hide();
+          $("#showAllStaffData").hide();
+          $("#showAddFood").hide();
+          $("#showAddTypeFood").hide();
+          $("#showMenuFood").hide();
+          $("#showAllQueue").hide();
+          $("#hideAddUser").click(function () {
+            $("#addUserByAdmin").hide();
+            $("#hideAddUser").hide();
+            $("#showAddUser").show();
+            $("#showAllStaffData").hide();
+
+          });
+          $("#showAddUser").click(function () {
+            $("#addUserByAdmin").show();
+            $("#hideAddUser").show();
+            $("#showAddFood").hide();
+            $("#showAllStaffData").hide();
+            $("#showAddTypeFood").hide();
+            $("#showMenuFood").hide();
+            $("#showAllQueue").hide();
+
+            // $("#showAddUser").hide();
+          });
+
+          var setReaddb = 0;
+          $("#showAllStaff").click(function () {
+            $("#showAllStaffData").show();
+            ///-------
+            $("#addUserByAdmin").hide();
+            $("#showAddFood").hide();
+            $("#showAddTypeFood").hide();
+            $("#showMenuFood").hide();
+            $("#showAllQueue").hide();
+            if (setReaddb == 0) {
+              StaffInfo();
+              setReaddb++;
+            } else {
+
+            }
+          });
+
+
+          $("#hideShowAllStaff").click(function () {
+            $("#showAllStaffData").hide();
+
+          });
+
+          $("#btnShowAddFood").click(function () {
+            $("#showAddFood").show();
+            $("#showAllStaffData").hide();
+            $("#showAddTypeFood").hide();
+            $("#showMenuFood").hide();
+            $("#showAllQueue").hide();
+          });
+
+          $("#hideAddFood").click(function () {
+            $("#showAddFood").hide();
+          });
+
+
+          $("#btnShowAddTypeFood").click(function () {
+            $("#showAddTypeFood").show();
+
+            $("#showAddFood").hide();
+            $("#showAllStaffData").hide();
+            $("#showAddFood").hide();
+            $("#addUserByAdmin").hide();
+            $("#showMenuFood").hide();
+            $("#showAllQueue").hide();
+          });
+          $("#hideAddTypeFood").click(function () {
+            $("#showAddTypeFood").hide();
+          });
+
+
+          var setReaddbFood = 0;
+          $("#btnShowMenuFood").click(function () {
+            if (setReaddbFood == 0) {
+              FoodInfo();
+              setReaddbFood++;
+            }
+            $("#showMenuFood").show();
+
+            $("#showAddFood").hide();
+            $("#showAllStaffData").hide();
+            $("#showAddFood").hide();
+            $("#addUserByAdmin").hide();
+            $("#showAddTypeFood").hide();
+            $("#showAllQueue").hide();
+          });
+          $("#hideMenuFood").click(function () {
+            $("#showMenuFood").hide();
+          });
+          showAllQueue
+          $("#btnShowAllQueue").click(function () {
+            $("#showAllQueue").show();
+
+            $("#showAddFood").hide();
+            $("#showAllStaffData").hide();
+            $("#showAddFood").hide();
+            $("#addUserByAdmin").hide();
+            $("#showAddTypeFood").hide();
+            $("#showMenuFood").hide();
+          });
+
+            $("#hideAllQueue").click(function () {
+            $("#showAllQueue").hide();
+          });
+
+
+        });
+      </script><br>
+      <div class="container" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #dddddd ">
+        <button id="showAddUser" class="btn btn-default"><img src="img/addUser.png" id="showAddUser" alt="" width="100"
+            height="100"><br>Add Staff</button>
+        <button id="showAllStaff" class="btn btn-default"><img src="img/showAllStaff.png" id="showAllStaff" alt=""
+            width="100" height="100"><br>Show All Staff</button>
+
+        <button id="btnShowAddFood" class="btn btn-default"><img src="img/addFood.png" id="btnShowAddFood" alt="" width="100"
+            height="100"><br>Add Food</button>
+        <button id="btnShowAddTypeFood" class="btn btn-default"><img src="img/TypeFood.png" id="btnShowAddTypeFood" alt=""
+            width="100" height="100"><br>Add Type Food</button>
+        <button id="btnShowMenuFood" class="btn btn-default"><img src="img/menuF.png" id="btnShowMenuFood" alt="" width="100"
+            height="100"><br>Menu Food</button>
+        <button id="btnShowAllQueue" class="btn btn-default"><img src="img/queueAll.png" id="btnShowAllQueue" alt="" width="100"
+            height="100"><br>All Queue</button>
+      </div>
+      <br><br>
+
+      <div class="container" id="addUserByAdmin" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #dddddd ">
+        <div align="right"> <button id="hideAddUser" class="btn btn-danger">X</button></div>
+
+        <style>
+          table {
                     font-family: arial, sans-serif;
                     border-collapse: collapse;
                     width: 100%;
@@ -68,73 +231,197 @@
                     background-color: #dddddd;
                 }
                 </style>
-      <center>
-        <h2>Register Staff and Chef</h2>
-      </center>
-
-      <center>
-        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="FirstName2"
-          placeholder="First name"></ons-input><br><br> 
-      </center>
-      <center>
-        <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="LastName2"
-          placeholder="Last name"> </ons-input><br><br> 
-      </center>
-      <br>
-      <center>
-        Position: <form>
-          <input type="radio" name="choice" value="Chef"> Chef
-          <input type="radio" name="choice" value="Waiter"> Waiter
-          <input type="radio" name="choice" value="Counter"> Counter
-        </form>
-      </center>
-      <br>
-      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Email"
-          placeholder="Email"> </ons-input><br><br> </center>
-      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Birthday"
-          placeholder="Birthday"></ons-input><br><br> </center>
-      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Tel"
-          placeholder="Tel"></ons-input><br><br> </center>
-      <center> <input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Password"
-          placeholder="Password"></ons-input<br><br> </center>
-      <center><ons-button onclick="register()">Register</ons-button></center>
-      <br>
-      <br>
-      <center><ons-button onclick="StaffInfo()">GetStaff</ons-button></center> <br>
-      <br>
-
-
-
-      <table>
         <center>
-          <div id='tableStaff'></div>
+          <h2>Register Staff and Chef</h2>
         </center>
-      </table>
-      <center><ons-button onclick="Activate()">Activate</ons-button></center>
+
+        <div style="margin-left:0;">
+          First name :<ons-input style="background-color: #505050de; color: #f70606 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="FirstName2" placeholder="First name"></ons-input><br><br>
+
+          Last name : <ons-input style="background-color: #505050de;color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="LastName2" placeholder="Last name"> </ons-input><br><br>
+
+          <br>
+
+          Position <form>
+            <input type="radio" name="choice" value="Chef"> Chef
+            <input type="radio" name="choice" value="Waiter"> Waiter
+            <input type="radio" name="choice" value="Counter"> Counter
+          </form>
+
+          <br>
+          Email:<ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Email" placeholder="Email"> </ons-input><br><br>
+          Birthday :<ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Birthday" placeholder="Birthday"></ons-input><br><br>
+          Tel :<ons-input style="background-color: #505050de;color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Tel" placeholder="Tel"></ons-input><br><br>
+          Password :<ons-input style="background-color:  #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="Password" id="Password" placeholder="Password"></ons-input><br><br> <br></div>
+        <center>
+          <ons-button onclick="register()">Register</ons-button><br><br>
+        </center>
+      </div>
+      <br>
+
+      <div class="container" id="showAllStaffData" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #000000 ">
+        <!-- <center><ons-button onclick="StaffInfo()">GetStaff</ons-button></center> <br> -->
+        <div align="right"> <button id="hideShowAllStaff" class="btn btn-danger">X</button></div>
+        <br>
+
+
+
+
+        <center>
+          <table>
+            <div id='tableStaff'></div>
+          </table>
+        </center>
+        <br>
+        <center>
+          <ons-button onclick="Activate()">Activate</ons-button>
+        </center>
+        <br> <br>
+      </div> <br>
+
+      <div class="container" id="showAddFood" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #dddddd ">
+        <div align="right"> <button id="hideAddFood" class="btn btn-danger">X</button></div>
+        <center>
+          <h2>New Food</h2>
+        </center>
+        <center>
+          Name : <ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Name" placeholder="Name"></ons-input><br><br>
+        </center>
+        <center>
+          Detail : <ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Detail" placeholder="Detail"></ons-input><br><br>
+        </center>
+        <center>
+          Price :<ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Price" placeholder="Price"></ons-input><br><br>
+        </center>
+        <center>
+          TimeCookm :<ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="TimeCook" placeholder="TimeCook"></ons-input>
+        </center>
+        <br>
+        <center>
+          Type
+          <div id='choice2'></div>
+          <!-- <form >
+                      <input type="radio" name="choice2" value="ต้ม"> ต้ม
+                      <input type="radio" name="choice2" value="ผัด"> ผัด
+                      <input type="radio" name="choice2" value="ทอด"> ทอด
+                      <input type="radio" name="choice2" value="เครื่องดื่ม"> เครื่องดื่ม
+                      <input type="radio" name="choice2" value="ของหวาน"> ของหวาน
+                    </form> -->
+        </center>
+        <br>
+        <center>
+          Pic URL : <ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Picture" placeholder="Pic URL"></ons-input><br><br>
+        </center>
+
+        <center>
+          <ons-button onclick="AddFood()">Add</ons-button>
+        </center>
+        <br>
+
+      </div>
+
+      <!-- //------ -->
+
+      <div class="container" id="showAddTypeFood" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #dddddd ">
+        <div align="right"> <button id="hideAddTypeFood" class="btn btn-danger">X</button></div>
+        <center>
+          <h2>New Type Food</h2>
+        </center>
+
+        <center>
+          Name Type Food :<ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="NameFood" placeholder="NameFood"></ons-input><br><br>
+        </center>
+        <center>
+          Detail :<ons-input style="background-color: #505050de; color: #000000 ;font-size: 20px;border-color: rgba(255, 255, 255, 0.6);border-bottom: 6px solid rgba(255, 255, 255, 0.6);"
+            type="text" id="Detail2" placeholder="Detail"></ons-input><br><br>
+        </center>
+        <br>
+        <center>
+          <ons-button onclick="AddMenu()">Add</ons-button>
+        </center>
+        <br>
+        <br>
+
+
+      </div>
+
+      <!-- //--- -->
+      <div class="container" id="showMenuFood" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #000000 ">
+        <div align="right"> <button id="hideMenuFood" class="btn btn-danger">X</button></div>
+        <center>
+          <!-- <ons-button onclick="FoodInfo()">GetFood</ons-button> -->
+        </center>
+        <center>
+          <table>
+
+            <div id='tableFood'></div>
+          </table>
+        </center>
+
+        <br>
+
+      </div>
+
+      <div class="container" id="showAllQueue" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #ffffff ">
+          <div align="right"> <button id="hideAllQueue" class="btn btn-danger">X</button></div>
+          <center>
+              <h2>Showing Queues</h2>
+            </center>
+            <center>
+              <ons-Button onclick='selectQueue()'>
+                <p>Show Queue</p>
+              </ons-Button>
+            </center>
+            <br>
+            <br>
+            <center>
+              <!-- <p>คิวต่อไป</p> -->
+            </center>
+            <center><textarea name="" id="pin1" cols="30" rows="10" disabled></textarea></center>
+  
+        </div>
+
+
+
+
     </ons-page>
   </template>
 
 
   <template id="ToConfirm.html">
-    <ons-page id="ToConfirm">
+    <ons-page id="ToConfirm" modifier="full_bg">
       <center>
         <h2>Showing Queues</h2>
       </center>
-      <center><ons-Button onclick='selectQueue()'>
-          <p>เรียกคิว</p>
-        </ons-Button></center>
+      <center>
+        <ons-Button onclick='selectQueue()'>
+          <p>Show Queue</p>
+        </ons-Button>
+      </center>
       <br>
       <br>
       <center>
-        <p>คิวต่อไป</p>
+        <!-- <p>คิวต่อไป</p> -->
       </center>
-      <center><textarea name="" id="pin1" cols="30" rows="10"></textarea></center>
+      <center><textarea name="" id="pin1" cols="30" rows="10" disabled></textarea></center>
     </ons-page>
   </template>
 
 
   <template id="ToReceive.html">
-    <ons-page id="ToReceive">
+    <ons-page id="ToReceive" modifier="full_bg">
       <style>
         table {
                       font-family: arial, sans-serif;
@@ -157,7 +444,7 @@
       </center>
 
       <center>
-        <h2>Food</h2>
+        <h2>New Food</h2>
       </center>
       <center>
         <ons-input style="background-color: #ffffff; color: #000000 ;font-size: 20px;" type="text" id="Name"
@@ -197,6 +484,9 @@
         <ons-button onclick="AddFood()">Add</ons-button>
       </center>
       <br>
+
+      <!-- //------------------------- -->
+
       <center>
         <ons-button onclick="FoodInfo()">GetFood</ons-button>
       </center>

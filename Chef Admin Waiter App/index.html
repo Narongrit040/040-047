@@ -15,6 +15,21 @@
 <script id="template" type="x-tmpl-musctache">
 
 </script>
+<style>
+
+
+    .page--full_bg__background {
+        background-image: url(img/bg.jpg);
+        /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
+  
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+  
+    }
+  </style>
 <body>
     <ons-page>
         <ons-toolbar>
@@ -66,7 +81,7 @@
 
       <!-- //--------- -->
       <template id="FoodMenu.html">
-        <ons-page id="FoodMenu">
+        <ons-page id="FoodMenu" modifier="full_bg">
             <p style="text-align: center;">
 
                 Your don't have permission (Login first)
@@ -76,7 +91,7 @@
 
 
       <template id="ToConfirm.html">
-        <ons-page id="ToConfirm">
+        <ons-page id="ToConfirm" modifier="full_bg">
           <p style="text-align: center;">
 
               Your don't have permission (Login first)
@@ -87,7 +102,7 @@
         </ons-page>
       </template>
       <template id="ToReceive.html">
-          <ons-page id="ToReceive">
+          <ons-page id="ToReceive" modifier="full_bg">
             <p style="text-align: center;">
                Your don't have permission (Login first)
             </p>

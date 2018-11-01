@@ -8,7 +8,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
   <link rel="stylesheet" href="css/onsen-css-components.css">
   <link rel="stylesheet" href="css/onsen-css-components.min.css">
- 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
 </head>
 <script id="template" type="x-tmpl-musctache">
 
@@ -17,7 +18,7 @@
 
 
     .page--full_bg__background {
-        background-image: url(img/bg.jpg);
+        background-image: url(img/bgA.jpg);
         /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
   
         background-size: cover;
@@ -32,6 +33,9 @@
     <ons-page>
         <ons-toolbar>
           <div class="center">Welcome</div>
+          <div class="right">
+            <ons-toolbar-button onclick="logout()"><i class="fas fa-sign-out-alt"></i> SIGN-OUT</ons-toolbar-button>
+          </div>
         </ons-toolbar>
       
         <ons-tabbar swipeable position="auto">
@@ -51,9 +55,9 @@
           <ons-page id="HomePage"  modifier="full_bg">
           <br>
           <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.6); color: #ffffff ;">
-          <center> Welcom Chef <div id="FirstName"></div>  </center>
+          <center> Welcome Chef <div id="FirstName"></div>  </center>
           
-            <center> <button type="submit" onclick="logout()" >log out</button></center> 
+            <!-- <center> <button type="submit" onclick="logout()" >log out</button></center>  -->
           </ons-card>
           </ons-page>
         </template>

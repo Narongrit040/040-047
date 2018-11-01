@@ -4210,7 +4210,6 @@ function amountServe1(){
 
                            for(var j = 0 ; j<dataQueue.length ; j++){
                                 if(dataQueue[j].IdQueue == data[i].IdQueue){
-                                    
                             $('#amountFood31').empty();
                   
                             $('#amountFood31').append("Amount: " +data[i].Amount +"<br> Detail: "+data[i].Detail +"<br><br><div style='color: red;font-size:25px;'> Table: "+dataQueue[j].Name+"</div>" );

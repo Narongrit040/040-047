@@ -2395,7 +2395,7 @@ $(function() {
             
         }else if(sum == defineComfirm.length){
             $("#addAllComfirm").append('');
-            $("#addAllComfirm").append('<button id="Order" onclick="payment()">Payment</button>');
+            $("#addAllComfirm").append('<ons-button class="btn btn-danger" id="Order" onclick="payment()">Payment</ons-button><br>');
         }else{
             
             $("#addAllComfirm").append('');

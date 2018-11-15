@@ -417,9 +417,101 @@
         <div class="container" id="showGf" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #ffffff ">
           <div align="right"> <button id="hideGf" class="btn btn-danger">X</button></div>
           <center>
-<h1>Graph</h1>
-
+            <script src="Graph for analysing/excelexportjs.js"></script>
+            <script src="Graph for analysing/index.js"></script>
+<h1>Analysis</h1>
+<style>
+    body {font-family: Arial;}
+    
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 5px solid lightgreen;
+        background-color: lightgreen;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: lightgreen;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 20px 16px;
+        transition: 0.5s;
+        font-size: 20px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color:lightgreen;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 20px 50px;
+        border: 5px solid #ccc;
+        border-top: none;
+    }
+    </style>
             </center>
+            
+<center>
+    <br>
+    Select Date: <input type="text" name="datefilter" value="" id="dateStart-end"/>
+     
+    <br>
+    <br>
+    <br>
+    <input type="text"  id="goodC" hidden><br>
+    <input type="text"  id="badC" hidden><br>
+    <input type="text"  id="unknownC" hidden><br>
+    <div id="export"></div>
+    <br>
+    <br>
+    
+    <ons-Button onclick='showDataAnalysing();showComment()' style="background-color: #f44336; padding: 20px 37px;font-size:30px">submit</ons-Button>
+    
+    <br>
+    <br>
+    </center>
+        <br>
+        <br>
+    
+     <center>
+       <canvas id="BarChart"></canvas> 
+       <canvas id="PieChartComment0"></canvas>
+    
+       <canvas id="LineChart"></canvas>
+       <canvas id="PieChartComment1"></canvas>
+    
+       <canvas id="PieChart"></canvas>
+       <canvas id="PieChartComment2"></canvas>
+    
+       <canvas id="PolarAreaChart"></canvas>
+       <canvas id="PieChartComment3"></canvas>
+    
+       <canvas id="horizontalBar"></canvas>
+       <canvas id="PieChartComment4"></canvas>
+    
+       <canvas id="doughnut"></canvas>
+       <canvas id="PieChartComment5"></canvas>
+    
+       <canvas id="radar"></canvas>
+       <canvas id="PieChartComment6"></canvas>
+    
+        <h1>User Comment Detail</h1>
+          <center><textarea style="background-color: puple; color: #ffffff ;font-size: 20px;" class="textarea"  name="" id="dataComment" cols="30" rows="10" disabled></textarea></center>
+    
+    
+       
+     </center>
 
   
         </div>

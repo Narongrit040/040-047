@@ -87,6 +87,7 @@
           $("#showAddTypeFood").hide();
           $("#showMenuFood").hide();
           $("#showAllQueue").hide();
+          $("#showGf").hide();
           $("#hideAddUser").click(function () {
             $("#addUserByAdmin").hide();
             $("#hideAddUser").hide();
@@ -97,6 +98,7 @@
           $("#showAddUser").click(function () {
             $("#addUserByAdmin").show();
             $("#hideAddUser").show();
+            $("#showGf").hide();
             $("#showAddFood").hide();
             $("#showAllStaffData").hide();
             $("#showAddTypeFood").hide();
@@ -115,6 +117,7 @@
             $("#showAddTypeFood").hide();
             $("#showMenuFood").hide();
             $("#showAllQueue").hide();
+            $("#showGf").hide();
             if (setReaddb == 0) {
               StaffInfo();
               setReaddb++;
@@ -131,6 +134,7 @@
 
           $("#btnShowAddFood").click(function () {
             $("#showAddFood").show();
+            $("#showGf").hide();
             $("#showAllStaffData").hide();
             $("#showAddTypeFood").hide();
             $("#showMenuFood").hide();
@@ -144,7 +148,7 @@
 
           $("#btnShowAddTypeFood").click(function () {
             $("#showAddTypeFood").show();
-
+            $("#showGf").hide();
             $("#showAddFood").hide();
             $("#showAllStaffData").hide();
             $("#showAddFood").hide();
@@ -171,6 +175,7 @@
             $("#addUserByAdmin").hide();
             $("#showAddTypeFood").hide();
             $("#showAllQueue").hide();
+            $("#showGf").hide();
           });
           $("#hideMenuFood").click(function () {
             $("#showMenuFood").hide();
@@ -178,7 +183,7 @@
           showAllQueue
           $("#btnShowAllQueue").click(function () {
             $("#showAllQueue").show();
-
+            $("#showGf").hide();
             $("#showAddFood").hide();
             $("#showAllStaffData").hide();
             $("#showAddFood").hide();
@@ -191,6 +196,19 @@
             $("#showAllQueue").hide();
           });
 
+                    $("#btnShowGf").click(function () {
+                      $("#showGf").show();
+            $("#showAllQueue").hide();
+            $("#showAddFood").hide();
+            $("#showAllStaffData").hide();
+            $("#showAddFood").hide();
+            $("#addUserByAdmin").hide();
+            $("#showAddTypeFood").hide();
+            $("#showMenuFood").hide();
+          });
+          $("#hideGf").click(function () {
+            $("#showGf").hide();
+          });
 
         });
       </script><br>
@@ -208,6 +226,8 @@
             height="100"><br>Menu Food</button>
         <button id="btnShowAllQueue" class="btn btn-default"><img src="img/queueAll.png" id="btnShowAllQueue" alt="" width="100"
             height="100"><br>All Queue</button>
+            <button id="btnShowGf" class="btn btn-default"><img src="img/Graph.png" id="btnShowGf" alt="" width="100"
+              height="100"><br>Graph</button>
       </div>
       <br><br>
 
@@ -393,6 +413,16 @@
   
         </div>
 
+
+        <div class="container" id="showGf" align="center" style="background-color:  rgba(0, 0, 0, 0.85); border-style: solid;border-color: rgba(0, 0, 0, 0); color: #ffffff ">
+          <div align="right"> <button id="hideGf" class="btn btn-danger">X</button></div>
+          <center>
+<h1>Graph</h1>
+
+            </center>
+
+  
+        </div>
 
 
 

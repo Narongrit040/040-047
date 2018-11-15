@@ -1,29 +1,43 @@
 <div id="Foods{{Id}}">
 
-  <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.7);">
-    <ons-list-item class="post_title">
-      <div class="left">
-        <!-- <img class="list-item__thumbnail" src="https://maxcdn.icons8.com/Share/icon/color/Cinema//sherlock_holmes1600.png" > -->
+<!-- 
+    <div class="row">
+      <div class="col">ต้มยำกุ้ง</div>
+      <div class="col">
+        <p class=" text-right text-white"><kbd>'+numroOrder+'</kbd> </p>
+      </div>
+    </div>จำนวน: <input style="color: red; background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0.0);font-size:24px;"
+      size="1" type="text" id="amountTotal1" value="'+amountต้มยำกุ้ง+'" disabled></input> จาน<br> Detail: <input style="color: red;background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0.0);font-size:24px;"
+      id="detail1" value="'+detail1+'" disabled><input hidden id="cart1" value="'+cart1+'" disabled></input> <br><button
+      class="btn btn-danger float-right" style=" font-size : 25px;" class="btn btn-danger" onclick="send1()">comfirm</button></center>
+  </div>
+</div> -->
 
-        <div class="post-caption">
-          <h2>{{Name}} </h2>
-        </div>
+
+<div class="card" style="color:black; font-size : 25px;">
+
+    <div class="left">
+      <!-- <img class="list-item__thumbnail" src="https://maxcdn.icons8.com/Share/icon/color/Cinema//sherlock_holmes1600.png" > 0, 0, 0, 0.7-->
+
+      <div class="post-caption">
+        <h2>{{Name}} </h2>
+      </div>
+
+ 
+
+    <!-- <div class="right">
+      <div class="post-caption">
+        <h2>Price: {{Price}} Baht</h2>
 
       </div>
 
-      <div class="right">
-        <div class="post-caption">
-          <h2>Price: {{Price}} Baht</h2>
-
-        </div>
-
-        <!-- <ons-button class="corner-button" modifier="quiet" onclick='deletepost({{id}})'><ons-icon icon="ion-trash-a"></ons-icon></ons-button> -->
-      </div>
-      <!-- <div class="center">
+      <ons-button class="corner-button" modifier="quiet" onclick='deletepost({{id}})'><ons-icon icon="ion-trash-a"></ons-icon></ons-button> -->
+    <!-- </div> -->
+    <!-- <div class="center">
                
             </div> -->
-    </ons-list-item>
-    <ons-list-item class="post_title">
+  
+
     <!-- <div style="text-align: center; position: relative;" ondblclick="like(1)"> -->
     <!-- <ons-icon size="150px" id="post-like-1" class="post-like" icon="ion-ios-heart"></ons-icon> -->
     <!-- <img  class="post-image" src="{{Pictures}}" height="250" width="250">  -->
@@ -32,21 +46,26 @@
     <!-- <div id="foodId">{{Id}}</div> -->
     <!-- <input type="text" id="nameFood{{Id}}" value="{{Name}}" disabled>
                 <input type="text" id="namePrice{{Id}}" value="{{Price}}" disabled> -->
+                <div class="row"><div class="col">
     <input id="no{{Id}}" name="prodId" type="hidden" value="{{Id}}">
-    <div id="amountFood{{Id}}" style="font-size:24px;"></div>
-
-    <ons-button class="corner-button" modifier="quiet" onclick='amountFinnished{{Id}}()'>Show Detail</ons-button>
-    <div class="right">
-      <ons-button class="btn btn-danger" style="padding: 10x 27px; font-size : 25px;"  modifier="quiet" onclick='serve{{Id}}()'>Finnished</ons-button>
+    <div id="amountFood{{Id}}" style="color:black; font-size:24px;"></div><br>
+    <!-- <ons-button  style="color:black; font-size:24px;" onclick='amountFinnished{{Id}}()'>Show Detail</ons-button> -->
+   <script>
+   amountFinnished{{Id}}();
+   </script>
     </div>
+
+    <div class="col">
+      <ons-button class="btn btn-danger float-right" style=" font-size : 25px;" onclick='serve{{Id}}()'>Finnished</ons-button>
+    </div>
+  </div>
     <!-- <ons-button class="corner-button" modifier="quiet" onclick='comfirm{{Id}}()'>Comfirm</ons-button> -->
 
 
 
-  
-</ons-list-item>
 
-<!-- <div class="post-caption"><b>{{Name}}</b> <br>{{Price}} </div> -->
+
+  <!-- <div class="post-caption"><b>{{Name}}</b> <br>{{Price}} </div> -->
 </ons-card>
 
 </div>

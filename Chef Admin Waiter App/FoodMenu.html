@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/onsen-css-components.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <script id="template" type="x-tmpl-musctache">
 
@@ -18,7 +20,7 @@
 
 
     .page--full_bg__background {
-        background-image: url(img/bgA.jpg);
+        background-image: url(img/bgCF.jpg);
         /* // alt="https://www.pexels.com/photo/opened-coloring-book-932262/"   https://www.pexels.com/photo-license/*/
   
         background-size: cover;
@@ -37,16 +39,16 @@
             <ons-toolbar-button onclick="logout()"><i class="fas fa-sign-out-alt"></i> SIGN-OUT</ons-toolbar-button>
           </div>
         </ons-toolbar>
-      
+
         <ons-tabbar swipeable position="auto">
-            <ons-tab page="HomePage.html"  label="My HomePage" icon="ion-home" active-icon="md-face" active>
+            <ons-tab page="HomePage.html"  label="My HomePage" icon="ion-home"  active>
               </ons-tab>
-          <ons-tab page="FoodMenu.html" id = "timetab" label="Order" icon="ion-home, material:md-home" badge="1" >
+          <ons-tab page="FoodMenu.html" id = "timetab" label="Order" icon="fa-list, material:md-home"  >
           </ons-tab>
       
-          <ons-tab page="ToConfirm.html" id = "CartTab" label="To Confirm" icon="md-settings" active-icon="md-face">
+          <ons-tab page="ToConfirm.html" id = "CartTab" label="To Confirm" icon="fa-check" >
           </ons-tab>
-          <ons-tab page="ToReceive.html" label="To Receive" icon="md-settings" active-icon="md-face">
+          <ons-tab page="ToReceive.html" label="History" icon="fa-history" >
             </ons-tab>
         </ons-tabbar>
       </ons-page>
@@ -56,7 +58,28 @@
           <br>
           <ons-card class="post" style="background-color:rgba(0, 0, 0, 0.6); color: #ffffff ;">
           <center> Welcome Chef <div id="FirstName"></div>  </center>
+<!-- <button onclick="clearDiv2()">xxxx</button> -->
           
+          <script>
+    clearDiv();
+    addComfirm();
+
+function clearDiv(){
+  $("#addComfirm").html("");
+  clearDiv2();
+    
+}
+
+function clearDiv2(){
+  $("#WaitToCook").html("");
+  clearDiv3();
+}
+function clearDiv3(){
+  $("#WaitToServe").html("");
+
+    
+}
+          </script>
             <!-- <center> <button type="submit" onclick="logout()" >log out</button></center>  -->
           </ons-card>
           </ons-page>
@@ -65,7 +88,8 @@
       <!-- //--------- -->
       <template id="FoodMenu.html">
         <ons-page id="FoodMenu" modifier="full_bg">
-          <div id='addComfirm'></div>
+
+          <div id='addComfirm' class="card-columns"></div>
           
         </ons-page>
     </template>
@@ -73,8 +97,12 @@
 
       <template id="ToConfirm.html">
         <ons-page id="ToConfirm" modifier="full_bg">
-            <center><ons-button class="corner-button" modifier="quiet" onclick='addCook()'>Show Data</ons-button></center> 
-          <div id='WaitToCook'></div>
+            <!-- <center><ons-button class="corner-button" modifier="quiet" onclick='addCook()'>Show Data</ons-button></center>  -->
+        <script>
+        addCook();
+        </script>
+          <div id='WaitToCook'  class="card-columns"></div>
+          <!-- <div class="card" style="color:black; font-size : 25px;" > <div class="row"> <div class="col">ต้มยำกุ้ง</div><div class="col"><p class=" text-right text-white"><kbd>'+numroOrder+'</kbd> </p></div></div>จำนวน: <input style="color: red; background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0.0);font-size:24px;" size="1" type="text" id="amountTotal1" value="'+amountต้มยำกุ้ง+'" disabled></input> จาน<br>  Detail: <input  style="color: red;background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0.0);font-size:24px;" id="detail1" value="'+detail1+'" disabled><input hidden id="cart1" value="'+cart1+'" disabled></input> <br><button   class="btn btn-danger float-right"  style= " font-size : 25px;"   class="btn btn-danger"   onclick="send1()">comfirm</button></center></div></div> -->
           <!-- <div id="addComfirm"></div> -->
           <!-- <div id="addComfirm2"></div> -->
           
@@ -82,7 +110,10 @@
       </template>
       <template id="ToReceive.html">
           <ons-page id="ToReceive" modifier="full_bg">
-              <center><ons-button class="corner-button" modifier="quiet" onclick='addReceive()'>Show Data</ons-button></center> 
+              <!-- <center><ons-button class="corner-button" modifier="quiet" onclick='addReceive()'>Show Data</ons-button></center>  -->
+              <script>
+              addReceive();
+              </script>
             <div id='WaitToServe'></div>
             
           </ons-page>
